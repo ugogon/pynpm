@@ -22,12 +22,12 @@ def run_npm(pkgdir, cmd, args=None, npm_bin='npm', wait=True):
     if wait:
         return subprocess.call(
             command,
-            cwd=pkgdir,
+            cwd=pkgdir, shell=True
         )
     else:
         return subprocess.Popen(
             command,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
-            cwd=pkgdir,
+            cwd=pkgdir, shell=True
         )
